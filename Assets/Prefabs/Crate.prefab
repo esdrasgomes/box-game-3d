@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -7823326440116935847}
   - component: {fileID: 4820313952576268247}
   - component: {fileID: -7578091097228040197}
+  - component: {fileID: 3098498271246357835}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Hazard
@@ -128,3 +129,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76535c35ef44cce4c89e2bde68c034c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breakingEffect: {fileID: 5623111137236163544, guid: c4416b654f25ae04db883daf0ff9e885, type: 3}
+--- !u!114 &3098498271246357835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715372898011363366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 2
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 3
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 11400000, guid: fd4ec09e8afb60d45b11f6c148f446ea, type: 2}
+    m_AmplitudeGain: 0.2
+    m_FrequencyGain: 0.5
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: -1, z: 0}
