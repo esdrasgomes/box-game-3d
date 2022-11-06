@@ -39,8 +39,8 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < hazardToSpawn; i++)
         {
-            var x = Random.Range(-7, 7);    
-            var drag = Random.Range(0f, 2f); 
+            var x = Random.Range(-7, 7);    // Colocando valor aleatório entre um valor e outro
+            var drag = Random.Range(0f, 2f); // Colocando valor aleatório entre um valor e outro
 
             var hazard = Instantiate(hazardPrefab, new Vector3(x, 11, 0), Quaternion.identity);
             hazard.GetComponent<Rigidbody>().drag = drag;
