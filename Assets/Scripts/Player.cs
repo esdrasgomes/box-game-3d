@@ -14,6 +14,16 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     private CinemachineImpulseSource cinemachineImpulseSource;
 
+/*
+    void Awake()
+    {
+        #if UNITY_EDITOR
+        //    QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 0; // frames por segundo
+        #endif
+    }
+*/
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +38,7 @@ public class Player : MonoBehaviour
 
         if (rb.velocity.magnitude <= maximumVelocity)
         {
-            rb.AddForce(new Vector3(horizontalInput * forceMultiplier, 0, 0));
+            rb.AddForce(new Vector3(horizontalInput * forceMultiplier * Time.deltaTime, 0, 0));
         }
     }
 

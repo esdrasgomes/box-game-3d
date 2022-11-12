@@ -18,12 +18,12 @@ public class Hazard : MonoBehaviour
         cinemachineImpulseSource = GetComponent<CinemachineImpulseSource>();
         player = FindObjectOfType<Player>();
 
-        var xRotation = Random.Range(0.4f, 1f); // Definindo uma rotação aleatória entre um valor e outro
+        var xRotation = Random.Range(90f, 180f); // Definindo uma rotação aleatória entre um valor e outro
         rotation = new Vector3(-xRotation, 0);
     }
 
     private void Update() {
-        transform.Rotate(rotation);
+        transform.Rotate(rotation * Time.deltaTime);
     }
 
     // Destruindo o hazard ao colidir com algo
@@ -36,10 +36,14 @@ public class Hazard : MonoBehaviour
             //Debug.Log("Destruindo o hazard");
             Instantiate(breakingEffect, transform.position, Quaternion.identity);
 
-            var distance = Vector3.Distance(transform.position, player.transform.position);
-            var force = 1f / distance;
-            Debug.Log(force);
-            cinemachineImpulseSource.GenerateImpulse(force);
+            if (player != null) 
+            {
+                var distance = Vector3.Distance(transform.position, player.transform.position);
+                var force = 1f / distance;
+                //Debug.Log(force);
+
+                cinemachineImpulseSource.GenerateImpulse(force);
+            }
         }
     }
 }
