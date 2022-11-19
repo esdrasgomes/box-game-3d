@@ -7,6 +7,12 @@ public class GameManager : MonoBehaviour
 {
     public GameObject hazardPrefab;
     public int maxHazardsToSpawn = 3;
+
+    public void Enable()
+    {
+        gameObject.SetActive(true);
+    }
+
     public TMPro.TextMeshProUGUI scoreText;
     public Image backgroundMenu;
 
@@ -14,8 +20,13 @@ public class GameManager : MonoBehaviour
     private float timer;
     private static bool gameOver;
 
+    private static GameManager instance;
+
+    public static GameManager Instance => instance;
+
     void Start()
     {
+        instance = this;
         StartCoroutine(SpawnHazards());
     }
 
@@ -75,8 +86,8 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < hazardToSpawn; i++)
         {
-            var x = Random.Range(-7, 7);    // Colocando valor aleatório entre um valor e outro
-            var drag = Random.Range(0f, 2f); // Colocando valor aleatório entre um valor e outro
+            var x = Random.Range(-7, 7);    
+            var drag = Random.Range(0f, 2f); 
 
             var hazard = Instantiate(hazardPrefab, new Vector3(x, 11, 0), Quaternion.identity);
             hazard.GetComponent<Rigidbody>().drag = drag;
